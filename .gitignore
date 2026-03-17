@@ -6,3 +6,7 @@ zig-cache/
 *.pdb
 *.xbf
 *.pri
+bin/
+obj/
+nul
+*.log
