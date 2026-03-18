@@ -1,12 +1,12 @@
-# zig-xaml-compiler
+# xaml-build-wrapper
 
-XAML compiler for Zig — generates XBF (XAML Binary Format) + PRI (Package Resource Index) from `.xaml` files without MSBuild or Visual Studio.
+XAML→XBF+PRI build wrapper: generates a minimal .csproj and invokes MSBuild to produce XBF (XAML Binary Format) + PRI (Package Resource Index) for non-C#/C++ projects.
 
 ## Motivation
 
 WinUI3's XAML compiler (`Microsoft.UI.Xaml.Markup.Compiler.dll`) is an MSBuild task that only works with C#/C++ projects. This makes it impossible to use `.xaml` files from Zig, Rust, or any non-MSBuild build system.
 
-This tool fills that gap: parse `.xaml`, emit `.xbf` + `.pri`, generate Zig code-behind.
+This tool bridges that gap: it generates a throwaway .csproj, runs MSBuild to compile XAML into XBF+PRI, and extracts the artifacts for use in your actual build system.
 
 ## Status
 
